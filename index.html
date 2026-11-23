@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission X: Bangladesh</title>
+<style>
+body {
+  margin: 0;
+  background: #063d2c;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+h1 { color: #ffd700; }
+#game {
+  background: linear-gradient(#65b7e8, #168b43);
+  height: 55vh;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid white;
+}
+#hero {
+  position: absolute;
+  bottom: 25px;
+  left: 45%;
+  font-size: 55px;
+}
+#star {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  font-size: 35px;
+}
+button {
+  background: #ffcc00;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 22px;
+  margin: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>🇧🇩 MISSION X: BANGLADESH</h1>
+<h3>Hero: CR7</h3>
+<p>স্টার সংগ্রহ করো এবং মিশন সম্পন্ন করো!</p>
+<div id="game">
+  <div id="star">⭐</div>
+  <div id="hero">🦸</div>
+</div>
+<h2>Score: <span id="score">0</span></h2>
+<button onclick="move(-35)">⬅️ LEFT</button>
+<button onclick="move(35)">RIGHT ➡️</button>
+<button onclick="collect()">⭐ COLLECT</button>
+<script>
+let score = 0;
+let position = 45;
+function move(direction) {
+  position += direction / 5;
+  position = Math.max(5, Math.min(85, position));
+  document.getElementById("hero").style.left =
+    position + "%";
+}
+function collect() {
+  score += 10;
+  document.getElementById("score").textContent = score;
+  document.getElementById("star").style.left =
+    Math.floor(Math.random() * 80 + 10) + "%";
+}
+</script>
+</body>
+</html>
